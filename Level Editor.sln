@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Level Editor", "Level Editor\Level Editor\Level Editor.csproj", "{03419446-6F03-4BCC-A0CC-3B7B04A4B257}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "Level EditorContent", "Level Editor\Level EditorContent\Level EditorContent.contentproj", "{4FDCDC10-02E7-426B-A33B-21AB71CC9AE6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03419446-6F03-4BCC-A0CC-3B7B04A4B257}.Debug|x86.ActiveCfg = Debug|x86
+		{03419446-6F03-4BCC-A0CC-3B7B04A4B257}.Debug|x86.Build.0 = Debug|x86
+		{03419446-6F03-4BCC-A0CC-3B7B04A4B257}.Release|x86.ActiveCfg = Release|x86
+		{03419446-6F03-4BCC-A0CC-3B7B04A4B257}.Release|x86.Build.0 = Release|x86
+		{4FDCDC10-02E7-426B-A33B-21AB71CC9AE6}.Debug|x86.ActiveCfg = Debug|x86
+		{4FDCDC10-02E7-426B-A33B-21AB71CC9AE6}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
