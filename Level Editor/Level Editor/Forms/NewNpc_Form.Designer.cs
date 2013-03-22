@@ -534,6 +534,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "NewNpc_Form";
             this.Text = "NewNpc_Form";
+            this.Load += new System.EventHandler(this.NewNpc_Form_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

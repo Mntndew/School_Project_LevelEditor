@@ -10,7 +10,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Windows.Forms;
 using System.IO;
-
 namespace Level_Editor
 {
     /// <summary>

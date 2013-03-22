@@ -195,5 +195,10 @@ namespace Level_Editor.Forms
         {
             patrolHeight = (int)numericPatrolHeight.Value;
         }
+
+        private void NewNpc_Form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

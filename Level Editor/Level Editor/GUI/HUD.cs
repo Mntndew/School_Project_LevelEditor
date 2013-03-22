@@ -26,7 +26,6 @@ namespace Level_Editor.GUI
         //variables to keep the hud in the same place
         int screenWidth, screenHeight;
         public List<cNpc> npcs = new List<cNpc>();
-        
 
         public HUD(int screenWidth, int screenHeight, ContentManager content)
         {
@@ -45,6 +44,7 @@ namespace Level_Editor.GUI
             {
                 npcDir = Directory.GetFiles(@"C:\npc\npc\")[i];
                 StreamReader reader = new StreamReader(npcDir);
+                reader.ReadLine();
                 npcs.Add(new cNpc(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), reader.ReadLine(), reader.ReadLine()));
                 reader.Close();
             }
