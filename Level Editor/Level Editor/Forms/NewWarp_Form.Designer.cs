@@ -200,7 +200,7 @@
             this.groupBox1.Controls.Add(this.textBoxTargetMap);
             this.groupBox1.Location = new System.Drawing.Point(12, 106);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(260, 173);
+            this.groupBox1.Size = new System.Drawing.Size(260, 194);
             this.groupBox1.TabIndex = 36;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Target";
@@ -211,9 +211,9 @@
             this.groupBox2.Controls.Add(this.playerY);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.numericTargetY);
-            this.groupBox2.Location = new System.Drawing.Point(6, 45);
+            this.groupBox2.Location = new System.Drawing.Point(6, 64);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(248, 57);
+            this.groupBox2.Size = new System.Drawing.Size(248, 58);
             this.groupBox2.TabIndex = 37;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Y Coordinate";
@@ -271,7 +271,7 @@
             this.xCoordinate.Controls.Add(this.label1);
             this.xCoordinate.Controls.Add(this.playerX);
             this.xCoordinate.Controls.Add(this.numericTargetX);
-            this.xCoordinate.Location = new System.Drawing.Point(6, 108);
+            this.xCoordinate.Location = new System.Drawing.Point(6, 128);
             this.xCoordinate.Name = "xCoordinate";
             this.xCoordinate.Size = new System.Drawing.Size(248, 60);
             this.xCoordinate.TabIndex = 36;
@@ -293,7 +293,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(213, 18);
+            this.label1.Location = new System.Drawing.Point(213, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(14, 13);
             this.label1.TabIndex = 26;
@@ -345,7 +345,7 @@
             // 
             // Create_Warp
             // 
-            this.Create_Warp.Location = new System.Drawing.Point(12, 293);
+            this.Create_Warp.Location = new System.Drawing.Point(12, 306);
             this.Create_Warp.Name = "Create_Warp";
             this.Create_Warp.Size = new System.Drawing.Size(106, 23);
             this.Create_Warp.TabIndex = 37;
@@ -355,7 +355,7 @@
             // 
             // Cancel
             // 
-            this.Cancel.Location = new System.Drawing.Point(166, 293);
+            this.Cancel.Location = new System.Drawing.Point(166, 306);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(106, 23);
             this.Cancel.TabIndex = 38;
@@ -371,7 +371,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 328);
+            this.ClientSize = new System.Drawing.Size(284, 341);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.Create_Warp);
             this.Controls.Add(this.groupBox1);

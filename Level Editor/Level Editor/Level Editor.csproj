@@ -80,14 +80,22 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Net" />
+    <Reference Include="Warp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Warp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Forms\cNpc.cs" />
-    <Compile Include="Forms\LoadMap_Form.cs" />
+    <Compile Include="Forms\LoadMap_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\LoadMap_Form.Designer.cs">
       <DependentUpon>LoadMap_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\NewMap_Form.cs" />
+    <Compile Include="Forms\NewMap_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\NewMap_Form.Designer.cs">
       <DependentUpon>NewMap_Form.cs</DependentUpon>
     </Compile>
@@ -113,7 +121,9 @@
     <Compile Include="GUI\HUD.cs" />
     <Compile Include="GUI\cPanel.cs" />
     <Compile Include="GUI\cLoadTilesetButton.cs" />
-    <Compile Include="Forms\LoadTileset_Form.cs" />
+    <Compile Include="Forms\LoadTileset_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\LoadTileset_Form.Designer.cs">
       <DependentUpon>LoadTileset_Form.cs</DependentUpon>
     </Compile>

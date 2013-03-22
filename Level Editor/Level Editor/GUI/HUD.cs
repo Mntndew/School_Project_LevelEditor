@@ -63,7 +63,8 @@ namespace Level_Editor.GUI
             buttons.Add(new cLoadMapButton(loadMap_texture, new Vector2(screenWidth - 300, screenHeight - 80)));
             buttons.Add(new cLoadTilesetButton(loadTileset_texture, new Vector2(screenWidth - 150, screenHeight - 160)));
             buttons.Add(new cNewMapButton(clearMap_texture, new Vector2(screenWidth - 150, screenHeight - 80)));
-            buttons.Add(new cNewNpcButton(newNpc_texture, new Vector2(0, 0)));
+            buttons.Add(new cNewNpcButton(newNpc_texture, new Vector2(880 + newNpc_texture.Width, 545)));
+            buttons.Add(new cNewWarpButton(newNpc_texture, new Vector2(880, 545)));
             panels.Add(new cPanel(panelYellow_texture, new Rectangle(screenWidth-322, screenHeight - 176, 322, 176)));
             panels.Add(new cPanel(panelYellow_texture, new Rectangle(screenWidth - 400, 0, 400, screenHeight - 176)));
             tilesetManager.LoadExtraTextures(content);
