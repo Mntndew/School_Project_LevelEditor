@@ -25,6 +25,7 @@ namespace Level_Editor.Map
         public Texture2D tileset;
 
         public string mapName = null;
+        public string filePath;
         //debugging variables
         //SpriteFont debugFont;
         
@@ -223,7 +224,11 @@ namespace Level_Editor.Map
 
         public void SaveMap(string filePath)
         {
-            StreamWriter writer = new StreamWriter(filePath);
+            filePath = ((filePath.Remove(filePath.Length - 3)) + @"\");
+            this.filePath = filePath;
+            Directory.CreateDirectory(filePath);
+            Directory.CreateDirectory(filePath + @"Map\");
+            StreamWriter writer = new StreamWriter((filePath + @"Map\") + mapName + ".tm");
             writer.WriteLine(mapName);
             
             writer.WriteLine(mapWidth.ToString());

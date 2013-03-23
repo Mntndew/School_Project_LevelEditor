@@ -140,7 +140,17 @@ namespace Level_Editor.Forms
             targetFilePath = reader.ReadLine();
             reader.Close();
 
-            Warp.Warp.CreateWarp(sourceFilePath, sourceX, sourceY, width, height, targetFilePath, targetX, targetY);
+            Directory.CreateDirectory(((Game1.mapController.map.filePath.Remove(Game1.mapController.map.mapName.Length)) + sourceFilePath) + @"\Warp\");
+            StreamWriter writer = new StreamWriter(((Game1.mapController.map.filePath.Remove(Game1.mapController.map.mapName.Length)) + sourceFilePath) + @"\Warp\" + sourceFilePath + " - " + targetFilePath + ".txt");
+            writer.WriteLine(sourceFilePath);
+            writer.WriteLine(sourceX);
+            writer.WriteLine(sourceY);
+            writer.WriteLine(width);
+            writer.WriteLine(height);
+            writer.WriteLine(targetFilePath);
+            writer.WriteLine(targetX);
+            writer.WriteLine(targetY);
+            writer.Close();
         }
 
         private void NewWarp_Form_Load(object sender, EventArgs e)
