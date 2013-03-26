@@ -276,6 +276,7 @@ namespace Level_Editor.Map
 
         public void LoadMap(string filepath)
         {
+            this.filePath = filepath;
             StreamReader reader = new StreamReader(filepath);
             //Read the global map data
             try

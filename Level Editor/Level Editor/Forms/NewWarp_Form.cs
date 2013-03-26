@@ -13,8 +13,10 @@ namespace Level_Editor.Forms
 {
     public partial class NewWarp_Form : Form
     {
-        string sourceFilePath;
+        public string sourceFilePath;
         string targetFilePath;
+        string sourceName;
+        string targetName;
 
         int sourceX, sourceY, width, height;
         int targetX, targetY;
@@ -31,7 +33,7 @@ namespace Level_Editor.Forms
 
         private void Browse_Source_Map_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            //if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 textBoxSourceMap.Text = openFileDialog1.FileName;
                 sourceFilePath = textBoxSourceMap.Text;
@@ -133,15 +135,19 @@ namespace Level_Editor.Forms
 
             //change the path to the name
             StreamReader reader = new StreamReader(sourceFilePath);
-            sourceFilePath = reader.ReadLine();
+            sourceName = reader.ReadLine();
             reader.Close();
 
             reader = new StreamReader(targetFilePath);
-            targetFilePath = reader.ReadLine();
+            targetName = reader.ReadLine();
             reader.Close();
 
-            Directory.CreateDirectory(((Game1.mapController.map.filePath.Remove(Game1.mapController.map.mapName.Length)) + sourceFilePath) + @"\Warp\");
-            StreamWriter writer = new StreamWriter(((Game1.mapController.map.filePath.Remove(Game1.mapController.map.mapName.Length)) + sourceFilePath) + @"\Warp\" + sourceFilePath + " - " + targetFilePath + ".txt");
+            if (!Directory.Exists((sourceFilePath.Remove(sourceFilePath.Length - (sourceName.Length + 7))) + @"Warp\"))
+            {
+                Directory.CreateDirectory((sourceFilePath.Remove(sourceFilePath.Length - (sourceName.Length + 7))) + @"Warp\");
+            }
+            
+            StreamWriter writer = new StreamWriter((sourceFilePath.Remove(sourceFilePath.Length - (sourceName.Length + 7))) + @"Warp\" + sourceName + " - " + targetName + ".txt");
             writer.WriteLine(sourceFilePath);
             writer.WriteLine(sourceX);
             writer.WriteLine(sourceY);
@@ -154,6 +160,11 @@ namespace Level_Editor.Forms
         }
 
         private void NewWarp_Form_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Source_Enter(object sender, EventArgs e)
         {
 
         }

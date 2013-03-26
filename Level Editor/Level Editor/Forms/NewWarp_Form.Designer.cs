@@ -173,6 +173,7 @@
             this.Source.TabIndex = 33;
             this.Source.TabStop = false;
             this.Source.Text = "Source";
+            this.Source.Enter += new System.EventHandler(this.Source_Enter);
             // 
             // Browse_Source_Map
             // 

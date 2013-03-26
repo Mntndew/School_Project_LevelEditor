@@ -68,6 +68,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.Create_Npc = new System.Windows.Forms.Button();
             this.Cancel = new System.Windows.Forms.Button();
+            this.numericUpDownSpeed = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericPatrolHeight)).BeginInit();
@@ -79,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).BeginInit();
             this.SuspendLayout();
             // 
             // Browse_Sprite
@@ -99,9 +102,9 @@
             this.groupBox1.Controls.Add(this.textBoxSprite);
             this.groupBox1.Controls.Add(this.Browse_Portrait);
             this.groupBox1.Controls.Add(this.Browse_Sprite);
-            this.groupBox1.Location = new System.Drawing.Point(12, 130);
+            this.groupBox1.Location = new System.Drawing.Point(12, 155);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(260, 78);
+            this.groupBox1.Size = new System.Drawing.Size(260, 74);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Images";
@@ -174,9 +177,9 @@
             this.groupBox2.Controls.Add(this.Left_To_Right);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.None);
-            this.groupBox2.Location = new System.Drawing.Point(12, 214);
+            this.groupBox2.Location = new System.Drawing.Point(12, 235);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(260, 115);
+            this.groupBox2.Size = new System.Drawing.Size(260, 117);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Patrol Options";
@@ -322,6 +325,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label14);
+            this.groupBox3.Controls.Add(this.numericUpDownSpeed);
             this.groupBox3.Controls.Add(this.radioButtonRight);
             this.groupBox3.Controls.Add(this.numericHeight);
             this.groupBox3.Controls.Add(this.radioButtonLeft);
@@ -339,10 +344,11 @@
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Location = new System.Drawing.Point(12, 1);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(260, 123);
+            this.groupBox3.Size = new System.Drawing.Size(260, 148);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Npc Options";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // radioButtonRight
             // 
@@ -504,7 +510,7 @@
             // 
             // Create_Npc
             // 
-            this.Create_Npc.Location = new System.Drawing.Point(12, 335);
+            this.Create_Npc.Location = new System.Drawing.Point(12, 358);
             this.Create_Npc.Name = "Create_Npc";
             this.Create_Npc.Size = new System.Drawing.Size(128, 22);
             this.Create_Npc.TabIndex = 5;
@@ -514,7 +520,7 @@
             // 
             // Cancel
             // 
-            this.Cancel.Location = new System.Drawing.Point(146, 335);
+            this.Cancel.Location = new System.Drawing.Point(146, 358);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(128, 22);
             this.Cancel.TabIndex = 6;
@@ -522,11 +528,28 @@
             this.Cancel.UseVisualStyleBackColor = true;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
+            // numericUpDownSpeed
+            // 
+            this.numericUpDownSpeed.Location = new System.Drawing.Point(159, 122);
+            this.numericUpDownSpeed.Name = "numericUpDownSpeed";
+            this.numericUpDownSpeed.Size = new System.Drawing.Size(95, 20);
+            this.numericUpDownSpeed.TabIndex = 7;
+            this.numericUpDownSpeed.ValueChanged += new System.EventHandler(this.numericUpDownSpeed_ValueChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 124);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(144, 13);
+            this.label14.TabIndex = 7;
+            this.label14.Text = "Speed (1 is good for walking)";
+            // 
             // NewNpc_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 369);
+            this.ClientSize = new System.Drawing.Size(284, 392);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.Create_Npc);
             this.Controls.Add(this.groupBox3);
@@ -549,6 +572,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -595,5 +619,7 @@
         private System.Windows.Forms.RadioButton radioButtonLeft;
         private System.Windows.Forms.RadioButton radioButtonDown;
         private System.Windows.Forms.RadioButton radioButtonUp;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.NumericUpDown numericUpDownSpeed;
     }
 }
