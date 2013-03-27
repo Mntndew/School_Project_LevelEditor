@@ -26,6 +26,7 @@ namespace Level_Editor.GUI
         //variables to keep the hud in the same place
         int screenWidth, screenHeight;
         public List<cNpc> npcs = new List<cNpc>();
+        public List<cWarp> warps = new List<cWarp>();
 
         public HUD(int screenWidth, int screenHeight, ContentManager content)
         {
@@ -36,13 +37,27 @@ namespace Level_Editor.GUI
             tilesetManager = new cTilesetManager(new Vector2(screenWidth - 362, 32));
         }
 
+        public void LoadWarp()
+        {
+            string warpDir;
+            int warpFiles = Directory.GetFiles(Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 7)) + @"Warp\").Length;
+            for (int i = 0; i < warpFiles; i++)
+            {
+                warpDir = Directory.GetFiles(Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 7)) + @"Warp\")[i];
+                StreamReader reader = new StreamReader(warpDir);
+                reader.ReadLine();
+                warps.Add(new cWarp(int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), reader.ReadLine()));
+                reader.Close();
+            }
+        }
+
         public void LoadNpc()
         {
             string npcDir;
-            int npcFiles = Directory.GetFiles(@"C:\npc\npc\").Length;
+            int npcFiles = Directory.GetFiles(Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 7)) + @"Npc\npc").Length;
             for (int i = 0; i < npcFiles; i++)
             {
-                npcDir = Directory.GetFiles(@"C:\npc\npc\")[i];
+                npcDir = Directory.GetFiles(Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 7)) + @"Npc\npc")[i];
                 StreamReader reader = new StreamReader(npcDir);
                 reader.ReadLine();
                 npcs.Add(new cNpc(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), reader.ReadLine(), reader.ReadLine()));
@@ -78,7 +93,6 @@ namespace Level_Editor.GUI
                 if (b.isClicked)
                     b.Effect();
             }
-            LoadNpc();
             tilesetManager.Update(gameTime);
         }
 

@@ -33,7 +33,7 @@ namespace Level_Editor.Forms
 
         private void Browse_Source_Map_Click(object sender, EventArgs e)
         {
-            //if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 textBoxSourceMap.Text = openFileDialog1.FileName;
                 sourceFilePath = textBoxSourceMap.Text;
@@ -157,6 +157,7 @@ namespace Level_Editor.Forms
             writer.WriteLine(targetX);
             writer.WriteLine(targetY);
             writer.Close();
+            Game1.hud.LoadWarp();
         }
 
         private void NewWarp_Form_Load(object sender, EventArgs e)

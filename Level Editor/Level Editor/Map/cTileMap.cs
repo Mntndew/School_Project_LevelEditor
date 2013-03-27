@@ -371,6 +371,8 @@ namespace Level_Editor.Map
                 System.Windows.Forms.MessageBox.Show("Failed to load map, possibly incorrect file format.");
                 reader.Close();
             }
+            Game1.hud.LoadNpc();
+            Game1.hud.LoadWarp();
         }
     }
 }

@@ -86,19 +86,6 @@ namespace Level_Editor.Map
                 //Check to add tiles to the selected layer
                 Rectangle mouseRect = new Rectangle(mouseState.X, mouseState.Y, 1, 1);
 
-                #region entity placement
-                if (Game1.hud.tilesetManager.currentConstructionType == GUI.cTilesetManager.constructionType.entity)
-                {
-                    if (mouseState.LeftButton == ButtonState.Pressed && mouseRect.Intersects(editableArea))
-                    {
-                        Point index = Point.Zero;
-                        index.X = (int)(mouseRect.X + viewOffset.X) / tileWidth;
-                        index.Y = (int)(mouseRect.Y + viewOffset.Y) / tileHeight;
-                        map.entityLayer[index.X, index.Y].tileID = Game1.hud.tilesetManager.selectedTileValue;
-                    }
-                }
-                #endregion
-
                 #region normal construction
                 if (Game1.hud.tilesetManager.currentConstructionType == GUI.cTilesetManager.constructionType.normal)
                 {

@@ -116,6 +116,7 @@
     <Compile Include="GUI\cNewWarpButton.cs" />
     <Compile Include="GUI\cSaveMapButton.cs" />
     <Compile Include="GUI\cTilesetManager.cs" />
+    <Compile Include="Forms\cWarp.cs" />
     <Compile Include="GUI\HUD.cs" />
     <Compile Include="GUI\cPanel.cs" />
     <Compile Include="GUI\cLoadTilesetButton.cs" />

@@ -97,7 +97,6 @@ namespace Level_Editor
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            hud.LoadNpc();
             spriteBatch = new SpriteBatch(GraphicsDevice);
             font = Content.Load<SpriteFont>(@"General\Font");
             hud.LoadTextures(Content);
@@ -186,11 +185,19 @@ namespace Level_Editor
             //spriteBatch.DrawString(font, "Mouse Pos: " + mouse.X + ", " + mouse.Y, new Vector2(8, 8), Color.Red);
             spriteBatch.DrawString(font, "Layer: " + mapController.selectedLayer, new Vector2(870, 690), Color.Red);
             spriteBatch.DrawString(font, "Map size: " + mapController.map.mapWidth + ", " + mapController.map.mapHeight, new Vector2(870, 670), Color.Red);
-            for (int i = 0; i < hud.npcs.Count; i++)
+            if (mapController.selectedLayer >= 5)
             {
-                spriteBatch.DrawString(font, "" + hud.npcs[i].name, new Vector2(hud.npcs[i].position.X, hud.npcs[i].position.Y - 30), Color.White);
-                spriteBatch.Draw(Content.Load<Texture2D>("entityTexture"), hud.npcs[i].position, Color.White);
+                for (int i = 0; i < hud.npcs.Count; i++)
+                {
+                    spriteBatch.DrawString(font, "" + hud.npcs[i].name, new Vector2(hud.npcs[i].position.X, hud.npcs[i].position.Y - 30), Color.White);
+                    spriteBatch.Draw(Content.Load<Texture2D>("entityTexture"), hud.npcs[i].position, Color.White);
+                }
+                for (int i = 0; i < hud.warps.Count; i++)
+                {
+                    hud.warps[i].Draw(spriteBatch, this);
+                }
             }
+            
             spriteBatch.End();
             
             base.Draw(gameTime);
