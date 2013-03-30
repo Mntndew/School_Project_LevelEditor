@@ -40,28 +40,34 @@ namespace Level_Editor.GUI
         public void LoadWarp()
         {
             string warpDir;
-            int warpFiles = Directory.GetFiles(Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 7)) + @"Warp\").Length;
-            for (int i = 0; i < warpFiles; i++)
+            if (Directory.Exists(Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 7)) + @"Warp\"))
             {
-                warpDir = Directory.GetFiles(Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 7)) + @"Warp\")[i];
-                StreamReader reader = new StreamReader(warpDir);
-                reader.ReadLine();
-                warps.Add(new cWarp(int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), reader.ReadLine()));
-                reader.Close();
+                int warpFiles = Directory.GetFiles(Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 7)) + @"Warp\").Length;
+                for (int i = 0; i < warpFiles; i++)
+                {
+                    warpDir = Directory.GetFiles(Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 7)) + @"Warp\")[i];
+                    StreamReader reader = new StreamReader(warpDir);
+                    reader.ReadLine();
+                    warps.Add(new cWarp(int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), reader.ReadLine()));
+                    reader.Close();
+                }
             }
         }
 
         public void LoadNpc()
         {
             string npcDir;
-            int npcFiles = Directory.GetFiles(Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 7)) + @"Npc\npc").Length;
-            for (int i = 0; i < npcFiles; i++)
+            if (Directory.Exists(Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 7)) + @"Npc\npc"))
             {
-                npcDir = Directory.GetFiles(Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 7)) + @"Npc\npc")[i];
-                StreamReader reader = new StreamReader(npcDir);
-                reader.ReadLine();
-                npcs.Add(new cNpc(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), reader.ReadLine(), reader.ReadLine()));
-                reader.Close();
+                int npcFiles = Directory.GetFiles(Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 7)) + @"Npc\npc").Length;
+                for (int i = 0; i < npcFiles; i++)
+                {
+                    npcDir = Directory.GetFiles(Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 7)) + @"Npc\npc")[i];
+                    StreamReader reader = new StreamReader(npcDir);
+                    reader.ReadLine();
+                    npcs.Add(new cNpc(reader.ReadLine(), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), int.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), bool.Parse(reader.ReadLine()), reader.ReadLine(), reader.ReadLine()));
+                    reader.Close();
+                }
             }
         }
 
