@@ -377,7 +377,11 @@
             this.Controls.Add(this.Create_Warp);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Source);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "NewWarp_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Warp";
             this.Load += new System.EventHandler(this.NewWarp_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericHeight)).EndInit();

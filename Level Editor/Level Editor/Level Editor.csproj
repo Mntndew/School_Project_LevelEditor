@@ -158,7 +158,6 @@
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>
-    <Content Include="MntnNpc.dll" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Level EditorContent\Level EditorContent.contentproj">

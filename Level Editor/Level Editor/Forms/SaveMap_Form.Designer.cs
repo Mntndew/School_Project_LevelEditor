@@ -84,6 +84,7 @@
             // 
             // saveFileDialog1
             // 
+            this.saveFileDialog1.DefaultExt = "tm";
             this.saveFileDialog1.Title = "Specify save location";
             // 
             // SaveMap_Form

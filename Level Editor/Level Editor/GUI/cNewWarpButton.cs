@@ -17,9 +17,11 @@ namespace Level_Editor.GUI
         public override void Effect()
         {
             Game1.state = State.PAUSE;
-            Forms.NewWarp_Form newWarpForm = new Forms.NewWarp_Form();
-            newWarpForm.ShowDialog();
-
+            if (Game1.mapIsSaved)
+            {
+                Forms.NewWarp_Form newWarpForm = new Forms.NewWarp_Form();
+                newWarpForm.ShowDialog();
+            }
             Game1.state = State.PLAY;
             base.Effect();
         }

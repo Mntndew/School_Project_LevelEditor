@@ -63,6 +63,8 @@ namespace Level_Editor
         public static int mapWidth, mapHeight, tileWidth, tileHeight;
         public SpriteFont font;
         public MouseState mouse;
+
+        public static bool mapIsSaved;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -198,7 +200,16 @@ namespace Level_Editor
                     hud.warps[i].Draw(spriteBatch, this);
                 }
             }
-            
+
+            if (mapController.tileWidth != 0 && mapController.tileHeight != 0 && new Rectangle(mouse.X, mouse.Y, 1,1).Intersects(mapController.GetEditableArea))
+            {
+                //spriteBatch.Draw(debugTexture, new Rectangle((mouse.X/mapController.tileWidth) * mapController.tileWidth + (int)(mapController.ViewOffset.X % mapController.tileWidth),
+                //    (mouse.Y / mapController.tileHeight) * mapController.tileHeight + (int)(mapController.ViewOffset.Y % mapController.tileHeight), 
+                //    mapController.tileWidth, 
+                //    mapController.tileHeight),
+                //    new Color(255,0,0,50));
+            }
+           
             spriteBatch.End();
             
             base.Draw(gameTime);

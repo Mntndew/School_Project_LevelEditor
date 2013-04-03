@@ -226,6 +226,7 @@ namespace Level_Editor.Map
         {
             filePath = ((filePath.Remove(filePath.Length - 3)) + @"\");
             this.filePath = filePath;
+            Console.WriteLine(filePath);
             Directory.CreateDirectory(filePath);
             Directory.CreateDirectory(filePath + @"Map\");
             StreamWriter writer = new StreamWriter((filePath + @"Map\") + mapName + ".tm");
