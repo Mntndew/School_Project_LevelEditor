@@ -22,7 +22,7 @@ namespace Level_Editor.Forms
         int patrolX, patrolY, patrolWidth, patrolHeight;
         int speed;
 
-        string root = Game1.mapController.map.filePath + @"Npc\";
+        string root;// = Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 3)) + @"Npc\";
         string portrait;
         string sprite;
         string npc;
@@ -30,6 +30,7 @@ namespace Level_Editor.Forms
         public NewNpc_Form()
         {
             InitializeComponent();
+            root = Game1.mapController.map.rootPath + @"Npc\";
             portrait = root + @"portrait\";
             sprite = root + @"sprite\";
             npc = root + @"npc\";
@@ -154,7 +155,7 @@ namespace Level_Editor.Forms
                 File.Copy(spriteFilePath, sprite + npcName + ".png");
             }
             
-            StreamWriter writer = new StreamWriter(Game1.mapController.map.filePath + @"Npc\npc\" + npcName + ".txt");
+            StreamWriter writer = new StreamWriter(npc + npcName + ".txt");
             writer.WriteLine(Game1.mapController.map.mapName);
             writer.WriteLine(npcName);
             writer.WriteLine(x * Game1.hud.tilesetManager.tileWidth);
