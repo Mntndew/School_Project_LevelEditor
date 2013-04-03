@@ -26,6 +26,7 @@ namespace Level_Editor.GUI
                 {
                     Game1.mapController.map.LoadMap(loadMap_Form.filePath);
                 }
+                Game1.mapIsSaved = true;
             }
             else
                 MessageBox.Show("Must load tileset first.");

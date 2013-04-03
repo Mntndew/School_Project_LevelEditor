@@ -18,12 +18,16 @@ namespace Level_Editor.GUI
         }
         public override void Effect()
         {
-            Game1.state = State.PAUSE;
-            Forms.NewNpc_Form newNpcForm = new Forms.NewNpc_Form();
-            newNpcForm.ShowDialog();
+            if (Game1.mapController.map != null && Game1.mapIsSaved)
+            {
+                Game1.state = State.PAUSE;
+                Forms.NewNpc_Form newNpcForm = new Forms.NewNpc_Form();
+                newNpcForm.ShowDialog();
 
-            Game1.state = State.PLAY;
-            Game1.hud.LoadNpc();
+                Game1.state = State.PLAY;
+                Game1.hud.LoadNpc();
+            }
+            
             base.Effect();
         }
     }

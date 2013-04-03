@@ -24,6 +24,7 @@ namespace Level_Editor.GUI
             if (saveMap_form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 Game1.mapController.map.SaveMap(saveMap_form.filePath);
+                Game1.mapIsSaved = true;
             }
             Game1.state = State.PLAY;
             base.Effect();

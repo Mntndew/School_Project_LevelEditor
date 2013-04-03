@@ -26,6 +26,7 @@ namespace Level_Editor.Map
 
         public string mapName = null;
         public string filePath;
+        public string rootPath;
         //debugging variables
         //SpriteFont debugFont;
         
@@ -224,11 +225,23 @@ namespace Level_Editor.Map
 
         public void SaveMap(string filePath)
         {
-            filePath = ((filePath.Remove(filePath.Length - 3)) + @"\");
-            this.filePath = filePath;
-            Directory.CreateDirectory(filePath);
-            Directory.CreateDirectory(filePath + @"Map\");
-            StreamWriter writer = new StreamWriter((filePath + @"Map\") + mapName + ".tm");
+            if (!Game1.mapIsSaved)
+            {
+                filePath = filePath + @"\";
+                rootPath = filePath;
+                this.filePath = filePath;
+                Console.WriteLine(filePath);
+                if (Directory.Exists(filePath))
+                {
+                    Directory.CreateDirectory(filePath);
+                }
+                if (!Directory.Exists(filePath + @"Map\"))
+                {
+                    Directory.CreateDirectory(filePath + @"Map\");
+                }
+            }
+            StreamWriter writer = new StreamWriter((rootPath + @"Map\") + mapName + ".tm");
+            
             writer.WriteLine(mapName);
             
             writer.WriteLine(mapWidth.ToString());
@@ -270,8 +283,8 @@ namespace Level_Editor.Map
                 }
                 writer.WriteLine();
             }
-
             writer.Close();
+            Console.WriteLine(rootPath);
         }
 
         public void LoadMap(string filepath)
@@ -371,6 +384,8 @@ namespace Level_Editor.Map
                 System.Windows.Forms.MessageBox.Show("Failed to load map, possibly incorrect file format.");
                 reader.Close();
             }
+            rootPath = filePath.Remove(filePath.Length - mapName.Length - 7);
+            Console.WriteLine(rootPath);
             Game1.hud.LoadNpc();
             Game1.hud.LoadWarp();
         }

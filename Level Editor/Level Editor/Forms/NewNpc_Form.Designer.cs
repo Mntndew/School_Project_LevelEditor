@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewNpc_Form));
             this.Browse_Sprite = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,6 +52,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.numericUpDownSpeed = new System.Windows.Forms.NumericUpDown();
             this.radioButtonRight = new System.Windows.Forms.RadioButton();
             this.numericHeight = new System.Windows.Forms.NumericUpDown();
             this.radioButtonLeft = new System.Windows.Forms.RadioButton();
@@ -68,8 +71,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.Create_Npc = new System.Windows.Forms.Button();
             this.Cancel = new System.Windows.Forms.Button();
-            this.numericUpDownSpeed = new System.Windows.Forms.NumericUpDown();
-            this.label14 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericPatrolHeight)).BeginInit();
@@ -77,11 +78,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericPatrolY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPatrolX)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericY)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).BeginInit();
             this.SuspendLayout();
             // 
             // Browse_Sprite
@@ -350,6 +351,23 @@
             this.groupBox3.Text = "Npc Options";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 124);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(144, 13);
+            this.label14.TabIndex = 7;
+            this.label14.Text = "Speed (1 is good for walking)";
+            // 
+            // numericUpDownSpeed
+            // 
+            this.numericUpDownSpeed.Location = new System.Drawing.Point(159, 122);
+            this.numericUpDownSpeed.Name = "numericUpDownSpeed";
+            this.numericUpDownSpeed.Size = new System.Drawing.Size(95, 20);
+            this.numericUpDownSpeed.TabIndex = 7;
+            this.numericUpDownSpeed.ValueChanged += new System.EventHandler(this.numericUpDownSpeed_ValueChanged);
+            // 
             // radioButtonRight
             // 
             this.radioButtonRight.AutoSize = true;
@@ -528,23 +546,6 @@
             this.Cancel.UseVisualStyleBackColor = true;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
-            // numericUpDownSpeed
-            // 
-            this.numericUpDownSpeed.Location = new System.Drawing.Point(159, 122);
-            this.numericUpDownSpeed.Name = "numericUpDownSpeed";
-            this.numericUpDownSpeed.Size = new System.Drawing.Size(95, 20);
-            this.numericUpDownSpeed.TabIndex = 7;
-            this.numericUpDownSpeed.ValueChanged += new System.EventHandler(this.numericUpDownSpeed_ValueChanged);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 124);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(144, 13);
-            this.label14.TabIndex = 7;
-            this.label14.Text = "Speed (1 is good for walking)";
-            // 
             // NewNpc_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -555,8 +556,14 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "NewNpc_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "NewNpc_Form";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.NewNpc_Form_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -568,11 +575,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericPatrolX)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericY)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).EndInit();
             this.ResumeLayout(false);
 
         }

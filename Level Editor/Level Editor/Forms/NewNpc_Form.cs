@@ -22,14 +22,19 @@ namespace Level_Editor.Forms
         int patrolX, patrolY, patrolWidth, patrolHeight;
         int speed;
 
-        string root = Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 7)) + @"Npc\";
-        string portrait = Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 7)) + @"Npc\portrait\";
-        string sprite = Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 7)) + @"Npc\sprite\";
-        string npc = Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 7)) + @"Npc\npc";
+        string root;// = Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 3)) + @"Npc\";
+        string portrait;
+        string sprite;
+        string npc;
 
         public NewNpc_Form()
         {
             InitializeComponent();
+            root = Game1.mapController.map.rootPath + @"Npc\";
+            portrait = root + @"portrait\";
+            sprite = root + @"sprite\";
+            npc = root + @"npc\";
+            Console.WriteLine(root);
         }
 
         private void Browse_Sprite_Click(object sender, EventArgs e)
@@ -150,7 +155,7 @@ namespace Level_Editor.Forms
                 File.Copy(spriteFilePath, sprite + npcName + ".png");
             }
             
-            StreamWriter writer = new StreamWriter(Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 7)) + @"Npc\npc\" + npcName + ".txt");
+            StreamWriter writer = new StreamWriter(npc + npcName + ".txt");
             writer.WriteLine(Game1.mapController.map.mapName);
             writer.WriteLine(npcName);
             writer.WriteLine(x * Game1.hud.tilesetManager.tileWidth);

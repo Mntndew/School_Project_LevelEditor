@@ -35,6 +35,16 @@ namespace Level_Editor.Map
 
         Rectangle editableArea;
 
+        public Rectangle GetEditableArea
+        {
+            get { return editableArea; }
+        }
+
+        public Vector2 ViewOffset
+        {
+            get { return viewOffset; }
+        }
+
         public Texture2D rectangle_texture;
         public Texture2D entityTexture;
 
@@ -59,8 +69,10 @@ namespace Level_Editor.Map
             if (Game1.state == State.PLAY)
             {
                 
-                mousePos = new Rectangle(mouseState.X, mouseState.Y, 1, 1);
-                
+                mousePos = new Rectangle(mouseState.X-(int)viewOffset.X, mouseState.Y-(int)viewOffset.Y, 1, 1);
+                Rectangle origMousePos = new Rectangle(mouseState.X, mouseState.Y, 1, 1);
+
+
                 //Check to update the selected layer
                 if (keyState.IsKeyDown(Keys.D1) && oldState.IsKeyUp(Keys.D1))
                 {
@@ -83,17 +95,14 @@ namespace Level_Editor.Map
                     selectedLayer = 5;
                 }
 
-                //Check to add tiles to the selected layer
-                Rectangle mouseRect = new Rectangle(mouseState.X, mouseState.Y, 1, 1);
-
                 #region normal construction
                 if (Game1.hud.tilesetManager.currentConstructionType == GUI.cTilesetManager.constructionType.normal)
                 {
-                    if (mouseState.LeftButton == ButtonState.Pressed && mouseRect.Intersects(editableArea))
+                    if (mouseState.LeftButton == ButtonState.Pressed && origMousePos.Intersects(editableArea))
                     {
                         Point index = Point.Zero;
-                        index.X = (int)(mouseRect.X + viewOffset.X) / tileWidth;
-                        index.Y = (int)(mouseRect.Y + viewOffset.Y) / tileHeight;
+                        index.X = (int)(mousePos.X) / tileWidth;
+                        index.Y = (int)(mousePos.Y) / tileHeight;
                         if (Game1.hud.tilesetManager.amount > 1)
                         {
                             for (int x = 0; x < Game1.hud.tilesetManager.widthTiles; x++)
@@ -276,13 +285,13 @@ namespace Level_Editor.Map
 
                     if (mouseState.LeftButton == ButtonState.Pressed && prevMouseState.LeftButton == ButtonState.Released)
                     {
-                        index.X = ((mouseRect.X / tileWidth) - ((int)viewOffset.X / tileWidth));
-                        index.Y = ((mouseRect.Y / tileHeight) - ((int)viewOffset.Y / tileHeight));
+                        index.X = ((mousePos.X / tileWidth));
+                        index.Y = ((mousePos.Y / tileHeight));
                     }
-                    if (mouseState.LeftButton == ButtonState.Pressed && mouseRect.Intersects(editableArea))
+                    if (mouseState.LeftButton == ButtonState.Pressed && origMousePos.Intersects(editableArea))
                     {
-                        end.X = ((mouseRect.X / tileWidth) - ((int)viewOffset.X / tileWidth));
-                        end.Y = ((mouseRect.Y / tileHeight) - ((int)viewOffset.Y / tileHeight));
+                        end.X = ((mousePos.X / tileWidth));
+                        end.Y = ((mousePos.Y / tileHeight));
 
                         if (end.Y > index.Y)
                         {
@@ -731,11 +740,11 @@ namespace Level_Editor.Map
                 #endregion
                 
                 #region remove tiles
-                if (mouseState.RightButton == ButtonState.Pressed && mouseRect.Intersects(editableArea))
+                if (mouseState.RightButton == ButtonState.Pressed && origMousePos.Intersects(editableArea))
                 {
                     Point index = Point.Zero;
-                    index.X = (int)(mouseRect.X + viewOffset.X) / tileWidth;
-                    index.Y = (int)(mouseRect.Y + viewOffset.Y) / tileHeight;
+                    index.X = (int)(mousePos.X + viewOffset.X) / tileWidth;
+                    index.Y = (int)(mousePos.Y + viewOffset.Y) / tileHeight;
 
                     if (Game1.hud.tilesetManager.amount > 1)
                     {

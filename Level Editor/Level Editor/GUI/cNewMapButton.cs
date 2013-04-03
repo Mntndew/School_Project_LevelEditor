@@ -38,6 +38,8 @@ namespace Level_Editor.GUI
                         MessageBox.Show("Failed to create map for some retarded reason");
                     }
                 }
+
+                Game1.mapIsSaved = false;
             }
             else
                 MessageBox.Show("Must load tileset first.");

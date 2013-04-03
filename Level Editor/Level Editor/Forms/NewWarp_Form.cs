@@ -141,12 +141,13 @@ namespace Level_Editor.Forms
             targetName = reader.ReadLine();
             reader.Close();
 
-            if (!Directory.Exists((sourceFilePath.Remove(sourceFilePath.Length - (sourceName.Length + 7))) + @"Warp\"))
+            if (!Directory.Exists(Game1.mapController.map.rootPath + @"Warp\"))
             {
-                Directory.CreateDirectory((sourceFilePath.Remove(sourceFilePath.Length - (sourceName.Length + 7))) + @"Warp\");
+                Directory.CreateDirectory(Game1.mapController.map.rootPath + @"Warp\");
             }
-            
-            StreamWriter writer = new StreamWriter((sourceFilePath.Remove(sourceFilePath.Length - (sourceName.Length + 7))) + @"Warp\" + sourceName + " - " + targetName + ".txt");
+            int index = Directory.GetFiles(Game1.mapController.map.rootPath + @"Warp\").Length;
+
+            StreamWriter writer = new StreamWriter(Game1.mapController.map.rootPath + @"Warp\" + sourceName + "_" + index + ".txt");
             writer.WriteLine(sourceFilePath);
             writer.WriteLine(sourceX);
             writer.WriteLine(sourceY);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewWarp_Form));
             this.numericHeight = new System.Windows.Forms.NumericUpDown();
             this.numericX = new System.Windows.Forms.NumericUpDown();
             this.numericWidth = new System.Windows.Forms.NumericUpDown();
@@ -377,7 +378,12 @@
             this.Controls.Add(this.Create_Warp);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Source);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "NewWarp_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Warp";
             this.Load += new System.EventHandler(this.NewWarp_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericHeight)).EndInit();
