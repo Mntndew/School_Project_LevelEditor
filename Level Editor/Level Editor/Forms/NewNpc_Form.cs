@@ -154,7 +154,7 @@ namespace Level_Editor.Forms
                 File.Copy(spriteFilePath, sprite + npcName + ".png");
             }
             
-            StreamWriter writer = new StreamWriter(Game1.mapController.map.filePath.Remove(Game1.mapController.map.filePath.Length - (Game1.mapController.map.mapName.Length + 7)) + @"Npc\npc\" + npcName + ".txt");
+            StreamWriter writer = new StreamWriter(Game1.mapController.map.filePath + @"Npc\npc\" + npcName + ".txt");
             writer.WriteLine(Game1.mapController.map.mapName);
             writer.WriteLine(npcName);
             writer.WriteLine(x * Game1.hud.tilesetManager.tileWidth);

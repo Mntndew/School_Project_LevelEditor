@@ -20,7 +20,7 @@ namespace Level_Editor.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             saveFileDialog1.FileName = Game1.mapController.map.mapName;
-            saveFileDialog1.DefaultExt = ".txt";
+
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 filePath = saveFileDialog1.FileName;

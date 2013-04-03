@@ -224,11 +224,14 @@ namespace Level_Editor.Map
 
         public void SaveMap(string filePath)
         {
-            filePath = ((filePath.Remove(filePath.Length - 3)) + @"\");
-            this.filePath = filePath;
-            Console.WriteLine(filePath);
-            Directory.CreateDirectory(filePath);
-            Directory.CreateDirectory(filePath + @"Map\");
+            if (!Game1.mapIsSaved)
+            {
+                filePath = filePath + @"\";
+                this.filePath = filePath;
+                Console.WriteLine(filePath);
+                Directory.CreateDirectory(filePath);
+                Directory.CreateDirectory(filePath + @"Map\");
+            }
             StreamWriter writer = new StreamWriter((filePath + @"Map\") + mapName + ".tm");
             writer.WriteLine(mapName);
             
