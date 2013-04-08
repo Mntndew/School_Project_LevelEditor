@@ -16,6 +16,7 @@ namespace Level_Editor.Forms
         string targetFilePath;
         string sourceName;
         string targetName;
+        string key;
 
         int sourceX, sourceY, width, height;
         int targetX, targetY;
@@ -149,13 +150,14 @@ namespace Level_Editor.Forms
 
             StreamWriter writer = new StreamWriter(Game1.mapController.map.rootPath + @"Warp\" + sourceName + "_" + index + ".txt");
             writer.WriteLine(sourceFilePath);
-            writer.WriteLine(sourceX);
-            writer.WriteLine(sourceY);
-            writer.WriteLine(width);
-            writer.WriteLine(height);
+            writer.WriteLine(sourceX - 1);
+            writer.WriteLine(sourceY - 1);
+            writer.WriteLine(width + 2);
+            writer.WriteLine(height + 2);
             writer.WriteLine(targetFilePath);
             writer.WriteLine(targetX);
             writer.WriteLine(targetY);
+            writer.WriteLine(key);
             writer.Close();
             Game1.hud.LoadWarp();
         }
@@ -168,6 +170,11 @@ namespace Level_Editor.Forms
         private void Source_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            key = textBox1.Text;
         }
     }
 }
