@@ -246,6 +246,9 @@ namespace Level_Editor.Map
             
             writer.WriteLine(mapWidth.ToString());
             writer.WriteLine(mapHeight.ToString());
+            writer.WriteLine(tileWidth);
+            writer.WriteLine(tileHeight);
+            writer.WriteLine(tileset.Width / tileWidth);
             writer.WriteLine();
 
             for (int i = 0; i < mapHeight; i++)
@@ -306,7 +309,9 @@ namespace Level_Editor.Map
                 Game1.mapController.mapWidth = mapWidth;
                 Game1.mapController.mapHeight = mapHeight;
                 reader.ReadLine();
-
+                reader.ReadLine();
+                reader.ReadLine();
+                reader.ReadLine();
                 //create an empty map based on the data
                 backgroundLayer = new cCell[mapWidth, mapHeight];
                 interactiveLayer = new cCell[mapWidth, mapHeight];

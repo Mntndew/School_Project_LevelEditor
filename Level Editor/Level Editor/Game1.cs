@@ -181,7 +181,7 @@ namespace Level_Editor
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(Color.CornflowerBlue); //new Color(0, 25, 50)
             mapController.Draw(spriteBatch);
             hud.Draw(spriteBatch);
             spriteBatch.Begin();

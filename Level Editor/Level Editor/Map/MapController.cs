@@ -743,8 +743,8 @@ namespace Level_Editor.Map
                 if (mouseState.RightButton == ButtonState.Pressed && origMousePos.Intersects(editableArea))
                 {
                     Point index = Point.Zero;
-                    index.X = (int)(mousePos.X + viewOffset.X) / tileWidth;
-                    index.Y = (int)(mousePos.Y + viewOffset.Y) / tileHeight;
+                    index.X = (int)(mousePos.X) / tileWidth;
+                    index.Y = (int)(mousePos.Y) / tileHeight;
 
                     if (Game1.hud.tilesetManager.amount > 1)
                     {
